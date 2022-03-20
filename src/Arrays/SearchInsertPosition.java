@@ -40,21 +40,42 @@ public class SearchInsertPosition {
         
     }
     
-//    static void returnIndexOfPositionOfInsertionBS(int arr[], int target){
-//        int middle = arr.length/2; 
-//        
-//        if(arr)
-//    }
+    static int returnIndexOfPositionOfInsertionBS(int arr[], int target, int start, int end){
+        int middle = (start + end)/2; 
+        
+        if(end < start){
+            return -1;
+        }
+        
+        else if(target < arr[middle]){
+             return returnIndexOfPositionOfInsertionBS(arr, target, start, middle - 1);
+        }
+        
+        else if(target > arr[middle]){
+            if(arr[middle - 1]  < target && arr[middle+1] > target){
+                return middle + 1; 
+            }
+            else{
+                return returnIndexOfPositionOfInsertionBS(arr, target, middle+1, end);
+            }
+            
+        }
+        else if(target == arr[middle]){
+            return middle;
+        }
+        return 0;
+    }
     
     
     
     public static void main(String[] args) {
         int[] dataSet = {1, 3, 5, 6};
-        int[] dataSet1 = {1, 10, 100, 1000};
-        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 6));
-        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 4));
-        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 2));
-        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 7));
-        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet1, 50));
+        int[] dataSet1 = {1, 10, 100, 1000, 2000};
+//        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 6));
+//        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 4));
+//        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 2));
+//        System.out.println(returnIndexOfPositionOfInsertionLS(dataSet, 7));
+         System.out.println(returnIndexOfPositionOfInsertionLS(dataSet1, 50));
+        //System.out.println(returnIndexOfPositionOfInsertionBS(dataSet1, 50, 0, dataSet1.length - 1));
     }
 }

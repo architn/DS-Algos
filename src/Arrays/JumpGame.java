@@ -16,7 +16,7 @@ public class JumpGame {
          if(index == (nums.length - 1) ){
              return true;
          }
-        int lastIndex = nums.length - 1;
+        //int lastIndex = nums.length - 1;
         boolean wasConditionMet = false;
         int startingPosition = nums[index];
         index +=  startingPosition;

@@ -8,6 +8,7 @@ package BinaryTree;
 import static BinaryTree.SumOfAllNodes.NewNode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  *
@@ -31,7 +32,17 @@ public class PrintLeftViewOfBinaryTree {
     
     static List<Integer> printLeftViewOfTree(Node node){
         List<Integer> leftElementsOfBinaryTree = new ArrayList<>();
-        leftElementsOfBinaryTree.add(node.left.data);
+        Stack<Node> elements = new Stack<>();
+        while(node != null){
+             leftElementsOfBinaryTree.add(node.left.data);
+             elements.push(node.left);
+             node = node.left;
+             if(node.left == null){
+                 node = elements.pop();
+                 node = node.right;
+                 printLeftViewOfTree(node);
+             }
+        }
         return leftElementsOfBinaryTree;
     }
     

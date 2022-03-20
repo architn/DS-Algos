@@ -12,15 +12,29 @@ package Arrays;
 public class RotateAnArray {
     
     
-    static void rotateAnArrayByK(int arr[], int k){
-        for(int index = k; index < arr.length; index++){
-            
+    static int[] rotateAnArrayByK(int arr[], int k){
+        
+        int temp = 0;
+        //int counter = 0;w
+        while(k < arr.length){
+            for(int index = 0; index <= arr.length/2; index++){
+            temp = arr[index];
+            arr[index] = arr[k-1];
+            arr[k-1] = temp;
+            k++;
         }
+    }
+        
+    return arr;
     }
     
     public static void main(String[] args){
         int[] dataset = {5, 6, 1, 2, 3, 4};
         // If K = 2
         // Expected Dataset = {1, 2, 3, 4, 5, 6}
+        int[] result = rotateAnArrayByK(dataset, 4);
+        for(int x : result){
+            System.out.print(x+" ");
+        }
     }
 }
