@@ -73,4 +73,4 @@ public class FindFirstAndLastPosition {
         System.out.println("LS: ["+resultsLS[0]+", "+resultsLS[1]+"]");
         System.out.println("BS: ["+resultsLS[0]+", "+resultsLS[1]+"]");
     }
-}
+} 

@@ -70,11 +70,34 @@ public class TwoSumProblem {
         }
     }
     
+    public static void SolveTwoSumProblemAdjacentWithSlidingWindow(int[] dataSet, int target){
+        int i = 0; 
+        int j = i+1;
+        HashMap<Integer, Integer> startEndIndices = new HashMap<>();
+        while(i < dataSet.length && j < dataSet.length){
+            if((dataSet[i] + dataSet[j]) == target){
+                startEndIndices.put(i, j);
+                break;
+            }
+            else{
+                i++;
+                j++;
+            }
+        }
+        for(int startingIndex : startEndIndices.keySet()){
+            System.out.println("Starting Index: "+startingIndex+" Ending Index: "
+                    +startEndIndices.get(startingIndex));
+        }
+    }
+    
     public static void main(String[] args){
         int[] dataset = {1, 2, 5, 7, 9};
         int[] dataset1 = {1, 2, 5, 8, 9, 0};
 
-        solveTwoSumWithTargetOnlyOneValue(dataset, 6);
-        solveTwoSumWithTargetMultipleValues(dataset1, 9);
+        //solveTwoSumWithTargetOnlyOneValue(dataset, 6);
+        //solveTwoSumWithTargetMultipleValues(dataset1, 9);
+        SolveTwoSumProblemAdjacentWithSlidingWindow(dataset, 16);
     }
+    
+    
 }

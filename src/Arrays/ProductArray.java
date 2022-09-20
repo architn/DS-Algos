@@ -34,6 +34,18 @@ public class ProductArray {
         return mult;
     }
     
+    
+     public int lengthOfLastWord(String s) {
+        int pointer = s.length() - 1;
+        int length = 0;
+        while(s.charAt(pointer) == ' '){
+            length++;
+            pointer--;
+        }
+        
+        return length;
+    }
+    
     public static void main(String[] args) {
         int[] dataSet = {1, 2, 3, 4, 5};
         List<Integer> result = productOfNumbersInArray(dataSet);
